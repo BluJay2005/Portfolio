@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremiah Jenkins | Software Engineer</title>
+    <meta name="description" content="Jeremiah Jenkins: Computer Science senior at NC A&amp;T, NASA software engineering intern, open to full-time roles starting Dec 2026.">
+    <meta property="og:title" content="Jeremiah Jenkins | Software Engineer">
+    <meta property="og:description" content="NASA intern. Hackathon winner. Open to full-time roles. Projects, skills, and resume.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#0a3321">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0Z' fill='%23d0f388'/%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Righteous&amp;family=Silkscreen:wght@400;700&amp;family=Space+Grotesk:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Three.js for 3D Geometric Floating Shapes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="">
+
+    <!-- 3D Geometric Wireframe Background Canvas with Spread Out Shapes & Colored Bright Outlines -->
+    <div id="bg-canvas-container"></div>
+
+    <!-- Fixed Header Navigation -->
+    <header>
+        <div class="brand">
+            <h1 data-editable="true">Jeremiah.dev</h1>
+            <p data-editable="true">NC A&amp;T '26</p>
+        </div>
+        <button id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+        <nav id="nav-menu" class="">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#experience">Experience</a>
+            <a class="nav-link" href="#education">Education</a>
+            <a class="nav-link" href="#docs">Docs</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- DEV MODE START: only visible when the page is opened with ?dev (e.g. index.html?dev). Safe to leave in; it is hidden for normal visitors. -->
+    <div id="dev-bar" class="dev-only">
+        <input type="file" id="photo-upload-input" accept="image/*" style="display:none;">
+        <div id="dev-status">Dev mode loading…</div>
+        <div class="dev-row">
+            <button class="photo-upload-btn" id="dev-photo-btn">Upload Picture</button>
+            <button class="dev-btn" id="dev-toggle-btn">Edit: OFF</button>
+            <button class="dev-btn" id="dev-undo-btn">Undo</button>
+            <button class="dev-btn" id="dev-save-btn">Save</button>
+        </div>
+        <div class="dev-row" id="dev-section-row"></div>
+    </div>
+    <!-- DEV MODE END -->
+
+    <!-- Scrollable Main Content -->
+    <div id="content-wrapper">
+        
+        <!-- SCREEN 1: HOME -->
+        <section id="home" class="screen">
+            <!-- Precise 4-Pointed Star Doodles -->
+            <svg class="star-doodle" style="top: 8%; right: 12%;" width="60" height="60" viewBox="0 0 100 100">
+                <path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z" fill="var(--accent-alt)"></path>
+            </svg>
+            <svg class="star-doodle delay" style="bottom: 12%; left: 6%;" width="50" height="50" viewBox="0 0 100 100">
+                <path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z" fill="var(--accent)"></path>
+            </svg>
+
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="mixed-title">
+                        <span class="font-display" data-editable="true">Build</span>
+                        <span class="font-pixel" data-editable="true">WITHOUT</span>
+                        <span class="font-script" data-editable="true">Limits</span>
+                    </div>
+                    <div class="open-badge">OPEN TO FULL TIME ROLES/SPRING CO-OPS</div>
+                    <p data-editable="true">
+                        I'm Jeremiah Jenkins, a Computer Science student and Software Engineer graduating in December 2026 with hands on experience across AI, security, and system modernization, from NASA to enterprise banking. 
+                    </p>
+                    <div class="btn-row">
+                        <a href="#projects" class="btn">Explore The Work</a>
+                        <a href="docs/resume.pdf" target="_blank" rel="noopener" class="btn alt">Resume ↓</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img id="profile-pic" src="images/profile.jpg" alt="Jeremiah Jenkins" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 2: PROJECTS & CERTIFICATIONS -->
+        <section id="projects" class="screen">
+            <svg class="star-doodle" style="top: 5%; right: 10%;" width="55" height="55" viewBox="0 0 100 100">
+                <path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z" fill="var(--accent)"></path>
+            </svg>
+
+            <h2 class="screen-title" data-editable="true">Featured Architecture</h2>
+            <p class="section-intro" data-editable="true">
+                I'm fascinated by the intersection of AI, finance, and complex systems. Whether it's modeling hybrid quantum workflows for aerospace or building intelligent forecasting tools, I love creating engines that solve real problems.
+            </p>
+
+            <div class="projects-grid">
+                <!-- 1. Quantum Orbiter -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="Jupyter Notebook:89.9,Python:10.1" style="background: linear-gradient(135deg, rgb(218, 91, 11) 0%, rgb(218, 91, 11) 44.11%, rgb(53, 114, 165) 44.11%, rgb(53, 114, 165) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">NASA Quantum<br>Orbiter</h3>
+                        <a href="https://github.com/BluJay2005/quantum-orbiter" target="_blank" class="github-link">SRC ↗</a>
+                    </div>
+                    <p class="project-desc" data-editable="true">A classical-vs-quantum orbit determination MVP. This project simulates hybrid workflows to optimize predictive modeling specifically for modern spacecraft tracking.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="python" data-editable="true">Python</span> 
+                        <span class="tech-pill" data-lang="qiskit" data-editable="true">Qiskit</span> 
+                        <span class="tech-pill" data-lang="python" data-editable="true">NumPy</span>
+                        <span class="tech-pill" data-lang="jupyter" data-editable="true">Jupyter</span>
+                    </div>
+                </div>
+
+                <!-- 2. WealthWhiz -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="TypeScript:74.0,CSS:14.3,JavaScript:10.7,HTML:1.0" style="background: linear-gradient(135deg, rgb(49, 120, 198) 0%, rgb(49, 120, 198) 32.95%, rgb(102, 51, 153) 32.95%, rgb(102, 51, 153) 39.31%, rgb(241, 224, 90) 39.31%, rgb(241, 224, 90) 44.66%, rgb(227, 76, 38) 44.66%, rgb(227, 76, 38) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">WealthWhiz<br>(Hackathon Winner)</h3>
+                        <a href="https://github.com/stevenha75/wealthwhiz" target="_blank" class="github-link">SRC ↗</a>
+                    </div>
+                    <p class="project-desc" data-editable="true">Winner of the Capital One Summit 2025 hackathon. An AI powered financial budgeting application integrating the Plaid API to securely track user finances and assist in building dedicated emergency funds via agentic forecasting.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="typescript" data-editable="true">TypeScript</span>
+                        <span class="tech-pill" data-lang="css" data-editable="true">CSS</span>
+                        <span class="tech-pill" data-lang="js" data-editable="true">JavaScript</span>
+                        <span class="tech-pill" data-lang="plaid" data-editable="true">Plaid API</span> 
+                    </div>
+                </div>
+
+                <!-- 3. Shelly Financial AI -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="Python:95.7,HTML:4.3" style="background: linear-gradient(135deg, rgb(53, 114, 165) 0%, rgb(53, 114, 165) 44.43%, rgb(227, 76, 38) 44.43%, rgb(227, 76, 38) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">Shelly<br>Financial AI</h3>
+                        <a href="https://github.com/BluJay2005" target="_blank" class="github-link">SRC ↗</a>
+                    </div>
+                    <p class="project-desc" data-editable="true">An NLP based financial forecasting tool designed to parse user inputs, analyze localized economic data, and generate intelligent, data-driven budgeting predictions.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="python" data-editable="true">Python</span> 
+                        <span class="tech-pill" data-lang="python" data-editable="true">NLP</span> 
+                        <span class="tech-pill" data-lang="pytorch" data-editable="true">PyTorch</span>
+                        <span class="tech-pill" data-lang="html" data-editable="true">HTML</span>
+                    </div>
+                </div>
+
+                <!-- 4. J.A.R.V.I.S Virtual Assistant -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="Python:100" style="background: linear-gradient(135deg, rgb(53, 114, 165) 0%, rgb(53, 114, 165) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">J.A.R.V.I.S<br>Virtual Assistant</h3>
+                        <span class="github-link disabled">IN DEV</span>
+                    </div>
+                    <p class="project-desc" data-editable="true">A local, voice activated virtual assistant capable of real time speech processing and handling personalized workflows through a custom machine learning backend.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="python" data-editable="true">Python</span> 
+                        <span class="tech-pill" data-lang="python" data-editable="true">SpeechRecognition</span>
+                    </div>
+                </div>
+
+                <!-- 5. BiteWise Diet App -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="Python:80,PLpgSQL:20" style="background: linear-gradient(135deg, rgb(53, 114, 165) 0%, rgb(53, 114, 165) 40%, rgb(51, 103, 144) 40%, rgb(51, 103, 144) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">BiteWise<br>Diet App</h3>
+                        <a href="https://github.com/BluJay2005/bitewise" target="_blank" class="github-link">SRC ↗</a>
+                    </div>
+                    <p class="project-desc" data-editable="true">An AI recipe application utilizing a content based filtering system governed by an Elo rating algorithm. Features automated allergen tagging via the Gemini API.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="python" data-editable="true">Python</span>
+                        <span class="tech-pill" data-lang="sql" data-editable="true">PostgreSQL</span> 
+                        <span class="tech-pill" data-lang="sql" data-editable="true">Supabase</span>
+                    </div>
+                </div>
+
+                <!-- 6. Cellular Purge -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="JavaScript:70,HTML:30" style="background: linear-gradient(135deg, rgb(241, 224, 90) 0%, rgb(241, 224, 90) 35%, rgb(227, 76, 38) 35%, rgb(227, 76, 38) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">Steralyze:<br>Cellular Purge</h3>
+                        <div class="link-row">
+                            <a href="https://blujay2005.github.io/Steralze/" target="_blank" rel="noopener" class="github-link live">PLAY ↗</a>
+                            <a href="https://github.com/BluJay2005/Steralze" target="_blank" rel="noopener" class="github-link">SRC ↗</a>
+                        </div>
+                    </div>
+                    <p class="project-desc" data-editable="true">A 60 second browser based retro boomer shooter built entirely from scratch utilizing high performance canvas entity management.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="html" data-editable="true">HTML5 Canvas</span> 
+                        <span class="tech-pill" data-lang="js" data-editable="true">Vanilla JS</span>
+                    </div>
+                </div>
+
+                <!-- 7. UOME3 -->
+                <div class="project-card">
+                    <div class="corner-fill" data-langs="JavaScript:70,HTML:20,CSS:10" style="background: linear-gradient(135deg, rgb(241, 224, 90) 0%, rgb(241, 224, 90) 34.31%, rgb(227, 76, 38) 34.31%, rgb(227, 76, 38) 44.12%, rgb(102, 51, 153) 44.12%, rgb(102, 51, 153) 50%);"></div>
+                    <div class="project-head">
+                        <h3 class="project-title" data-editable="true">UOME3<br>Fighting Game</h3>
+                        <div class="link-row">
+                            <a href="https://blujay2005.github.io/Uom3/" target="_blank" rel="noopener" class="github-link live">PLAY ↗</a>
+                            <a href="https://github.com/BluJay2005/Uom3" target="_blank" rel="noopener" class="github-link">SRC ↗</a>
+                        </div>
+                    </div>
+                    <p class="project-desc" data-editable="true">A fighting game built from scratch, with character movement, combat mechanics, and a game loop of my own design.</p>
+                    <div>
+                        <span class="tech-pill" data-lang="js" data-editable="true">Game Dev</span>
+                        <span class="tech-pill" data-lang="html" data-editable="true">HTML5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN: SKILLS -->
+        <section id="skills" class="screen">
+            <h2 class="screen-title" data-editable="true">Skills</h2>
+            <p class="section-intro" data-editable="true">The stack I reach for, from my resume and the projects above.</p>
+            <div class="skills-grid">
+                <div class="skill-card"><h3>Languages</h3>
+                    <span class="tech-pill">Python</span><span class="tech-pill">Java</span><span class="tech-pill">C++</span><span class="tech-pill">C#</span><span class="tech-pill">SQL</span><span class="tech-pill">PowerShell</span><span class="tech-pill">TypeScript</span><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML/CSS</span></div>
+                <div class="skill-card"><h3>Frameworks &amp; Libraries</h3>
+                    <span class="tech-pill">Node.js</span><span class="tech-pill">Express.js</span><span class="tech-pill">React</span><span class="tech-pill">Vite</span><span class="tech-pill">Electron</span><span class="tech-pill">.NET</span><span class="tech-pill">REST APIs</span><span class="tech-pill">Streamlit</span></div>
+                <div class="skill-card"><h3>AI &amp; Data</h3>
+                    <span class="tech-pill">PyTorch</span><span class="tech-pill">scikit-learn</span><span class="tech-pill">Pandas</span><span class="tech-pill">NumPy</span><span class="tech-pill">SciPy</span><span class="tech-pill">NLP</span><span class="tech-pill">Qiskit</span><span class="tech-pill">Jupyter</span></div>
+                <div class="skill-card"><h3>Cloud, Data &amp; Tools</h3>
+                    <span class="tech-pill">Azure</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Supabase</span><span class="tech-pill">PouchDB</span><span class="tech-pill">Git/GitHub</span><span class="tech-pill">Postman</span><span class="tech-pill">OutSystems</span><span class="tech-pill">UC4</span><span class="tech-pill">Excel</span></div>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: EXPERIENCE -->
+        <section id="experience" class="screen">
+            <svg class="star-doodle" style="top: 10%; right: 7%;" width="50" height="50" viewBox="0 0 100 100">
+                <path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z" fill="var(--accent)"></path>
+            </svg>
+
+            <h2 class="screen-title" data-editable="true">The Journey</h2>
+            <p class="section-intro" data-editable="true">
+                My professional journey spans from upgrading enterprise level banking infrastructures to modernizing foundational aerospace software. I thrive in environments where performance, strict security, and long term scalability are critical.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date" data-editable="true">May 2026 — Aug 2026</span>
+                    <h3 class="timeline-title" data-editable="true">Software Engineering Intern (HADES)</h3>
+                    <div class="timeline-company" data-editable="true">NASA Ames Research Center</div>
+                    <p class="timeline-desc" data-editable="true">
+                        Funded by the NC Space Grant, I collaborated with an engineering team to audit a 6 year old legacy codebase. I successfully resolved 42 critical security vulnerabilities and architected the merger of 3 fragmented binary databases into a unified, bidirectional JSON system utilizing PouchDB, Electron, and Vite. Additionally, I implemented an Excel style Hazard Table using LocatorJS. Secured a spring return offer based on these high-impact infrastructure contributions.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date" data-editable="true">May 2025 — Aug 2025</span>
+                    <h3 class="timeline-title" data-editable="true">.Net Developer Intern</h3>
+                    <div class="timeline-company" data-editable="true">AgFirst Farm Credit Bank</div>
+                    <p class="timeline-desc" data-editable="true">
+                        Spearheaded a solo bank report archiving project utilizing PowerShell and UC4, significantly reducing overall data storage consumption by 30%. Supported a major DNA Systems Upgrade to modernize the bank's core loaning infrastructure.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date" data-editable="true">May 2024 — Aug 2024</span>
+                    <h3 class="timeline-title" data-editable="true">Web Developer Intern</h3>
+                    <div class="timeline-company" data-editable="true">AgFirst Farm Credit Bank</div>
+                    <p class="timeline-desc" data-editable="true">
+                        Developed and enhanced three internal banking applications using the OutSystems low code platform, resulting in a 25% measured improvement in user experience metrics. Logged over 500 editor changes with 95% accuracy.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date" data-editable="true">May 2023 — Aug 2023</span>
+                    <h3 class="timeline-title" data-editable="true">Application Support Intern</h3>
+                    <div class="timeline-company" data-editable="true">AgFirst Farm Credit Bank</div>
+                    <p class="timeline-desc" data-editable="true">
+                        Collaborated with the Cybersecurity team to deploy 4 new secure enterprise banking applications and managed 8,500+ unique user records across 16 databases, ensuring strict enterprise data compliance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: EDUCATION -->
+        <section id="education" class="screen">
+            <svg class="star-doodle" style="top: 6%; right: 6%;" width="55" height="55" viewBox="0 0 100 100">
+                <path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z" fill="var(--accent-alt)"></path>
+            </svg>
+
+            <h2 class="screen-title" data-editable="true">Education</h2>
+            <p class="section-intro" data-editable="true">
+                My academic journey at North Carolina A&amp;T State University goes far beyond passing classes. I am deeply invested in campus communities, technical innovation clubs, and guiding the next generation of engineers.
+            </p>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <h3 data-editable="true">North Carolina A&amp;T</h3>
+                    <h4 data-editable="true">B.S. Computer Science • Dec 2026</h4>
+                    <p data-editable="true">Currently pursuing my Bachelor's degree with a focus on advanced algorithms, systems architecture, and AI integrations. Proud Google Cloud Scholar and Microsoft Azure Fundamentals (AZ-900) certified.</p>
+                </div>
+                <div class="edu-card">
+                    <h3 data-editable="true">NSBE &amp; e2i</h3>
+                    <h4 data-editable="true">Campus Organizations</h4>
+                    <p data-editable="true">Active member of the National Society of Black Engineers and the e2i (Engineering &amp; Innovation) club, collaborating with peers on technical challenges and professional development.</p>
+                </div>
+                <div class="edu-card">
+                    <h3 data-editable="true">FIRST Robotics</h3>
+                    <h4 data-editable="true">Youth Mentoring &amp; Judging</h4>
+                    <p data-editable="true">Volunteered as a judge and mentor for FIRST Robotics competitions, evaluating technical designs and fostering STEM excitement among young competitors.</p>
+                </div>
+                <div class="edu-card">
+                    <h3 data-editable="true">Global Studies</h3>
+                    <h4 data-editable="true">Ewha Womans University</h4>
+                    <p data-editable="true">Studied abroad in Seoul, South Korea. Gained invaluable international perspective adapting to diverse technological and cultural environments.</p>
+                </div>
+            </div>
+
+            <div class="certifications-section">
+                <h3 class="certifications-title" data-editable="true">Certifications &amp; Honors</h3>
+                <div class="certs-grid">
+                    <div class="cert-card">
+                        <h4 data-editable="true">Google Cloud Scholar</h4>
+                        <span class="cert-issuer" data-editable="true">Google Cloud</span>
+                        <p data-editable="true">Recognized for academic excellence and commitment to advanced cloud architecture and distributed systems.</p>
+                    </div>
+                    <div class="cert-card">
+                        <h4 data-editable="true">Azure Fundamentals (AZ-900)</h4>
+                        <span class="cert-issuer" data-editable="true">Microsoft</span>
+                        <p data-editable="true">Validated foundational knowledge of cloud concepts, core Azure services, security, pricing, and governance.</p>
+                    </div>
+                    <div class="cert-card">
+                        <h4 data-editable="true">NC Space Grant Fellow</h4>
+                        <span class="cert-issuer" data-editable="true">NASA / NC Space Grant</span>
+                        <p data-editable="true">Awarded research funding and sponsorship for high impact aerospace software engineering contributions at NASA Ames.</p>
+                    </div><div class="cert-card">
+    <h4 data-editable="true">AgFirst Leaders Scholarship</h4>
+    <span class="cert-issuer" data-editable="true">AgFirst Farm Credit Banks</span>
+    <p data-editable="true">Recognized for 2 years in a row for exceptional leadership and commitment to service and community engagement.</p>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN: DOCS -->
+        <section id="docs" class="screen">
+            <h2 class="screen-title" data-editable="true">Docs</h2>
+            <p class="section-intro" data-editable="true">Resume, recommendation letters, and other documents.</p>
+            <div class="docs-grid">
+                <a class="doc-card" href="docs/resume.pdf" target="_blank" rel="noopener"><span class="doc-tag">PDF</span><h3>Resume</h3><p>One page. Updated for Dec 2026 graduation.</p></a><a class="doc-card" href="docs/Letter-of-recommendation-003-.docx" target="_blank" rel="noopener"><span class="doc-tag">Letter of Recommendation</span><h3>AgFIrst Letter Of Recommendation</h3><p>Written By Nikhil Bhola</p></a><a class="doc-card" href="docs/LoR_JeremiahJenkins.pdf" target="_blank" rel="noopener"><span class="doc-tag">Letter of Recommendation</span><h3>NASA Letter Of Rec</h3><p>Written By Daniel Hulse</p></a><a class="doc-card" href="docs/SKM_C360i25031614500-2.pdf" target="_blank" rel="noopener"><span class="doc-tag">Letter Of recommendation</span><h3>NCAT Letter of Recommendation</h3><p>Written By Mason Jones<br></p></a>
+                
+            </div>
+        </section>
+
+        <!-- SCREEN 5: CONTACT -->
+        <section id="contact" class="screen">
+            <svg class="star-doodle" style="top: 12%; right: 10%;" width="55" height="55" viewBox="0 0 100 100">
+                <path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z" fill="var(--accent-alt)"></path>
+            </svg>
+
+            <h2 class="screen-title" data-editable="true">Let's Connect</h2>
+            <p class="section-intro" data-editable="true">
+                Whether you want to discuss modern advancements in tech, work on open software projects, or collaborate for jobs or research, my inbox is open. Let's build something without limits.
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:jeremiahmarkj@gmail.com" class="contact-card">
+                    <span data-editable="true">Email Me</span> <span data-editable="true">jeremiahmarkj@gmail.com</span>
+                </a>
+                
+                <a href="https://github.com/BluJay2005" target="_blank" class="contact-card">
+                    <span data-editable="true">GitHub</span> <span data-editable="true">@BluJay2005</span>
+                </a>
+
+                <a href="https://linkedin.com/in/jeremiah-jenkins-435478277" target="_blank" class="contact-card">
+                    <span data-editable="true">LinkedIn</span> <span data-editable="true">Jeremiah Jenkins</span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/background-3d.js"></script>
+
+</body></html>

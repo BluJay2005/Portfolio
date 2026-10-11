@@ -1,0 +1,79 @@
+/* DEV MODE STYLES - loaded only when the page is opened with ?dev.
+   Nothing here affects the public site; it is stripped from index.html on save. */
+
+body.dev #dev-bar {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .5rem;
+    max-width: min(440px, 94vw);
+    padding: .7rem;
+    background: rgba(10, 51, 33, .96);
+    border: 2px solid var(--border);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, .35);
+    font-family: var(--font-body);
+}
+#dev-bar .dev-row { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: flex-end; }
+#dev-bar .dev-row:empty { display: none; }
+#dev-bar .dev-btn, #dev-bar .photo-upload-btn { padding: .4rem .8rem; font-size: .8rem; }
+#dev-bar .dev-btn.on { background: var(--accent); border-color: var(--accent); }
+#dev-bar .dev-btn.dirty::after { content: ' •'; }
+#dev-bar .dev-btn:disabled { opacity: .4; cursor: default; }
+#dev-bar .dev-mini {
+    background: transparent; color: var(--accent); border: 1px solid var(--accent);
+    padding: .25rem .5rem; font-size: .75rem; font-weight: 700; cursor: pointer; font-family: var(--font-body);
+}
+#dev-bar .dev-mini:hover { background: var(--accent); color: var(--bg); }
+#dev-bar .dev-mini.danger { color: #f43f5e; border-color: #f43f5e; }
+#dev-bar .dev-mini.danger:hover { background: #f43f5e; color: #fff; }
+#dev-bar .dev-mini:disabled { opacity: .35; cursor: default; }
+#dev-bar .dev-mini:disabled:hover { background: transparent; color: var(--accent); }
+#dev-bar .dev-label { width: 100%; text-align: right; color: var(--text-muted); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+#dev-status { font-size: .75rem; color: var(--text-muted); text-align: right; cursor: pointer; user-select: none; }
+#dev-bar.collapsed .dev-row { display: none; }
+
+/* text editing cues (outlines never change layout) */
+body.dev-editing [contenteditable="true"] { cursor: text; outline: 1px dashed transparent; outline-offset: 2px; }
+body.dev-editing [contenteditable="true"]:hover { outline-color: var(--accent-alt); }
+body.dev-editing [contenteditable="true"]:focus { outline: 2px solid var(--accent); }
+
+/* floating toolbars */
+#dev-item-tb, #dev-pill-tb {
+    position: fixed; z-index: 1999; display: none; gap: 2px; padding: 3px;
+    background: var(--bg); border: 2px solid var(--accent); box-shadow: 3px 3px 0 rgba(0, 0, 0, .35);
+    font-family: var(--font-body);
+}
+#dev-item-tb button, #dev-pill-tb button {
+    background: transparent; color: var(--accent); border: 0; padding: .25rem .5rem;
+    font-size: .75rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); white-space: nowrap;
+}
+#dev-item-tb button:hover, #dev-pill-tb button:hover { background: var(--accent); color: var(--bg); }
+#dev-item-tb button.danger, #dev-pill-tb button.danger { color: #f43f5e; }
+#dev-item-tb button.danger:hover, #dev-pill-tb button.danger:hover { background: #f43f5e; color: #fff; }
+#dev-item-tb .sep { width: 1px; background: var(--border); margin: 2px 2px; }
+
+/* modal */
+#dev-modal {
+    position: fixed; inset: 0; z-index: 3000; background: rgba(0, 0, 0, .6);
+    display: flex; align-items: center; justify-content: center; padding: 1rem; font-family: var(--font-body);
+}
+#dev-modal .dm-box {
+    width: min(480px, 100%); max-height: 90vh; overflow: auto; background: var(--bg);
+    border: 2px solid var(--accent); box-shadow: 8px 8px 0 rgba(0, 0, 0, .4); padding: 1.2rem; color: var(--text-main);
+}
+#dev-modal h4 { font-family: var(--font-display); color: var(--accent); font-size: 1.4rem; margin-bottom: .8rem; font-weight: 400; }
+#dev-modal .dm-field { display: flex; flex-direction: column; gap: .25rem; margin-bottom: .7rem; font-size: .85rem; color: var(--text-muted); }
+#dev-modal .dm-field.dm-check { flex-direction: row; align-items: center; gap: .5rem; }
+#dev-modal input[type="text"], #dev-modal select, #dev-modal textarea, #dev-modal input[type="file"] {
+    background: rgba(208, 243, 136, .06); color: var(--text-main); border: 2px solid var(--border);
+    padding: .5rem; font-family: var(--font-body); font-size: .95rem; width: 100%;
+}
+#dev-modal input[type="text"]:focus, #dev-modal select:focus, #dev-modal textarea:focus { outline: none; border-color: var(--accent); }
+#dev-modal select option { background: var(--bg); }
+#dev-modal .dm-head { font-family: var(--font-pixel); color: #f6e05e; font-size: .75rem; text-transform: uppercase; margin: .6rem 0 .4rem; }
+#dev-modal .dm-note { font-size: .8rem; color: var(--text-muted); margin-bottom: .7rem; line-height: 1.4; }
+#dev-modal .dm-actions { display: flex; gap: .5rem; justify-content: flex-end; margin-top: .5rem; }
+#dev-modal .dm-actions button {
+    padding: .5rem 1rem; font-weight: 700; cursor: pointer; border: 2px solid var(--accent);
+    background: var(--accent); color: var(--bg); font-family: var(--font-body);
+}
+#dev-modal .dm-actions button[type="button"] { background: transparent; color: var(--accent); }
