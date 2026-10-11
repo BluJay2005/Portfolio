@@ -3,7 +3,9 @@
         body.dev .dev-only { display: flex !important; }
         #dev-bar { position: fixed; bottom: 1rem; right: 1rem; z-index: 2000; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; }
         #menu-btn { display: none; background: none; border: 2px solid var(--accent); color: var(--accent); font-size: 1.5rem; width: 46px; height: 42px; cursor: pointer; }
-.open-badge { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-size: 1.2rem; color: #f6e05e; background: none; padding: .45rem 0; margin-bottom: 1.5rem; }        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .open-badge { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-size: 1.2rem; color: #f6e05e; background: none; padding: .45rem 0; margin-bottom: 1.5rem; }
+        .open-badge::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); }
+        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn.alt { background: transparent; color: var(--accent); }
         .btn.alt:hover { background: #fff; color: var(--bg); }
         .github-link.live { background: var(--accent-alt); border-color: var(--accent-alt); }
@@ -21,11 +23,12 @@
         .doc-card.soon { opacity: .6; border-style: dashed; }
         @media (max-width: 1000px) {
             #menu-btn { display: block; }
-            header { height: 56px !important; flex-direction: row !important; padding: 0 1rem !important; }
-            nav { top: 56px; /* leave the rest of this line as is */ }
-            #content-wrapper { padding-top: 76px !important; }
-            header nav { display: none; position: absolute; top: 70px; ...rest of the line unchanged... }
+            header { height: 70px !important; flex-direction: row !important; padding: 0 1rem !important; }
+            header nav { display: none; position: absolute; top: 70px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: rgba(10,51,33,.97); border-bottom: 2px solid var(--border); padding: .5rem 1rem 1rem; }
             header nav.open { display: flex; }
+            #content-wrapper { padding-top: 90px !important; }
+            html { scroll-padding-top: 80px; }
+        }
         @media (max-width: 600px) {
             section.screen { padding: 2.5rem 1.1rem 4rem !important; min-height: auto; }
             h2.screen-title { font-size: 2.3rem; }
