@@ -21,12 +21,11 @@
         .doc-card.soon { opacity: .6; border-style: dashed; }
         @media (max-width: 1000px) {
             #menu-btn { display: block; }
-            header { height: 70px !important; flex-direction: row !important; padding: 0 1rem !important; }
-            nav { display: none; position: absolute; top: 70px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: rgba(10,51,33,.97); border-bottom: 2px solid var(--border); padding: .5rem 1rem 1rem; }
-            nav.open { display: flex; }
-            #content-wrapper { padding-top: 90px !important; }
-            html { scroll-padding-top: 80px; }
-        }
+            header { height: 56px !important; flex-direction: row !important; padding: 0 1rem !important; }
+            nav { top: 56px; /* leave the rest of this line as is */ }
+            #content-wrapper { padding-top: 76px !important; }
+            header nav { display: none; position: absolute; top: 70px; ...rest of the line unchanged... }
+            header nav.open { display: flex; }
         @media (max-width: 600px) {
             section.screen { padding: 2.5rem 1.1rem 4rem !important; min-height: auto; }
             h2.screen-title { font-size: 2.3rem; }

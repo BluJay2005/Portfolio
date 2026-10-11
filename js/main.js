@@ -32,7 +32,9 @@
             menuBtn.setAttribute('aria-expanded', open);
         });
         navMenu.addEventListener('click', e => { if (e.target.closest('a')) navMenu.classList.remove('open'); });
-
+        document.addEventListener('click', e => {
+            if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) { navMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
+        });
         // DEV MODE: open index.html?dev to show the edit tools
         if (new URLSearchParams(location.search).has('dev')) {
             document.body.classList.add('dev');
